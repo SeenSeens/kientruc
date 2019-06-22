@@ -1,6 +1,3 @@
-<?php
-//
-?>
 <div style="background: #121212;margin-bottom: 5px;">
 <?php
 $taxonomy   = 'category';
@@ -38,7 +35,7 @@ if ( $the_query->have_posts() ) :
         <div class="get_page">
             <div id="portfolio-item" class="ga" style="margin: 0;padding: 0;list-style: none;">
                 <?php while ( $the_query->have_posts() ) : $the_query->the_post();
-                $terms = get_the_terms( $post->ID, 'category');                                           
+                $terms = get_the_terms( $post->ID, 'category');                                 
                 if ( $terms && ! is_wp_error( $terms ) ) : 
                     $links = array();        
                     foreach ( $terms as $term ) 
@@ -62,11 +59,11 @@ if ( $the_query->have_posts() ) :
                             </a>
                         </div>
                     </div>
-                </div>ss
-                <?php endwhile; ?>  
-                <div class="col-md-4 col-sm-6 col-xs-12 xem giat">
-                    <div> <?php next_posts_link('Xem thêm...') ?></div>      
-                </div>          
+                </div>
+                <?php endwhile; ?>
+                <div class="col-md-4 col-sm-6 col-xs-12 xem giat" style="top: 100px;">
+                    <div> <?php next_posts_link('Xem thêm...') ?> </div>                         
+                </div>         
             </div>
             <div class="clear"></div>
         </div>

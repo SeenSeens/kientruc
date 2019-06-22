@@ -7,5 +7,5 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /kientruc/index.php [L]
 </IfModule>
-php_flag display_errors off
-# END WordPress	s
+
+# END WordPress

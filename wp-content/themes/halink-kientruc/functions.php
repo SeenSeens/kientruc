@@ -197,9 +197,9 @@ if (!file_exists('halink_style')) :
         wp_enqueue_script('js-wow.min', get_template_directory_uri().'/js/wow.min.js', array('jquery'));
         wp_enqueue_script('js-flexslider', get_template_directory_uri().'/js/jquery.flexslider.js', array('jquery'));
         wp_enqueue_script('js-slick', get_template_directory_uri().'/js/slick.js', array('jquery'));
-	wp_enqueue_script('js-isotope', get_template_directory_uri().'/js/isotope.pkgd.min.js', array('jquery'));
+		wp_enqueue_script('js-isotope', get_template_directory_uri().'/js/isotope.pkgd.min.js', array('jquery'));
         wp_enqueue_script('fit-columns', get_template_directory_uri().'/js/fit-columns.js', array('jquery'));
-	wp_enqueue_script('js-hihe', get_template_directory_uri().'/js/hihe.js', array('jquery'));
+		wp_enqueue_script('js-hihe', get_template_directory_uri().'/js/hihe.js', array('jquery'));
         wp_enqueue_script('js-fancybox', get_template_directory_uri().'/fancybox/dist/jquery.fancybox.min.js', array('jquery'));
     }
 endif;
@@ -449,33 +449,33 @@ add_action('login_head', 'login_css');
 
 function the_breadcrumb() {
 	echo '<ul id="crumbs">';
-if (!is_home()) {
-	echo '<a href="';
-	echo get_option('home');
-	echo '">';
-	echo '<img src="https://img.icons8.com/small/32/000000/home-page.png">&nbsp;Home';
-	echo "</a> / ";
-	if (is_category() || is_single()) {
-			the_category(' / ');
-			if (is_single()) {
-					the_title(' / ');
-			}
-	} elseif (is_page()) {
-			echo the_title(' / ');
+	if (!is_home()) {
+		echo '<a href="';
+		echo get_option('home');
+		echo '">';
+		echo '<img src="https://img.icons8.com/small/32/000000/home-page.png">&nbsp;Home';
+		echo "</a> / ";
+		if (is_category() || is_single()) {
+				the_category(' / ');
+				if (is_single()) {
+						the_title(' / ');
+				}
+		} elseif (is_page()) {
+				echo the_title(' / ');
+		}
 	}
-}
-elseif (is_tag()) {single_tag_title();}
-elseif (is_day()) {echo"<li>Archive for "; the_time('F jS, Y'); echo'</li>';}
-elseif (is_month()) {echo"<li>Archive for "; the_time('F, Y'); echo'</li>';}
-elseif (is_year()) {echo"<li>Archive for "; the_time('Y'); echo'</li>';}
-elseif (is_author()) {echo"<li>Author Archive"; echo'</li>';}
-elseif (isset($_GET['paged']) && !empty($_GET['paged'])) {echo "<li>Blog Archives"; echo'</li>';}
-elseif (is_search()) {echo"<li>Search Results"; echo'</li>';}
-echo '</ul>';
+	elseif (is_tag()) {single_tag_title();}
+	elseif (is_day()) {echo"<li>Archive for "; the_time('F jS, Y'); echo'</li>';}
+	elseif (is_month()) {echo"<li>Archive for "; the_time('F, Y'); echo'</li>';}
+	elseif (is_year()) {echo"<li>Archive for "; the_time('Y'); echo'</li>';}
+	elseif (is_author()) {echo"<li>Author Archive"; echo'</li>';}
+	elseif (isset($_GET['paged']) && !empty($_GET['paged'])) {echo "<li>Blog Archives"; echo'</li>';}
+	elseif (is_search()) {echo"<li>Search Results"; echo'</li>';}
+	echo '</ul>';
 }
 
-require_once get_template_directory().'/portfolio/CPT.php';
-require_once get_template_directory().'/portfolio/register-portfolio.php';
+//require_once get_template_directory().'/portfolio/CPT.php';
+//require_once get_template_directory().'/portfolio/register-portfolio.php';
 
 function get_the_content_by_id($post_id) {
   $page_data = get_page($post_id);

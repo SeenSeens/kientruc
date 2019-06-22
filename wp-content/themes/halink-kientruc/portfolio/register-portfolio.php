@@ -26,7 +26,7 @@ $vatlieu= new CPT(
         'post_type_name' => 'vatlieu',
         'singular' => __('Vật liệu', 'halink'),
         'plural' => __('Vật liệu', 'halink'),
-        'slug' => 'vat-lieu'
+        'slug' => 'vat-lieu-1'
     ),
     array (
         'supports' => array (
@@ -48,7 +48,7 @@ $vatlieu= new CPT(
         'post_type_name' => 'gioithieu',
         'singular' => __('Giới thiệu', 'halink'),
         'plural' => __('Giới thiệu', 'halink'),
-        'slug' => 'gioi-thieu'
+        'slug' => 'gioi-thieu-1'
     ),
     array (
         'supports' => array (

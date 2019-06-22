@@ -26,7 +26,7 @@
 		<div>
 		<?php 
 			// the query
-			$the_query = new WP_Query(array('post_type' => 'gioithieu')); ?>
+			$the_query = new WP_Query(array('post_type' => 'post')); ?>
 				<?php if ( $the_query->have_posts() ) : ?>
 			<div class="block-detail-2" style="display: block;">
 				<div class="get_page">

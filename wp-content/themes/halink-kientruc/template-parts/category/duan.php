@@ -22,61 +22,70 @@ $all_categories = get_categories($args);
 ?>
 <div class="row">
     <div style="background: #121212;margin-bottom: 5px;">
-      <nav class="navbar navbar-inverse navbar-fix">
-        <ul class="block-list-1 tab-title">
-        <?php 
-        if($all_categories) :
-            foreach($all_categories as $cat) :
-        ?>
-        <li>
-            <a onclick="loadSubMenu(<?= $cat->term_id; ?>)" class="menusub" id="menu" href="#"><?= $cat->name; ?></a>
-        </li>
-        <?php 
-            endforeach;            
-            wp_reset_query();
-        endif;
-        ?>
-        </ul>
-        <div class="clear"></div>
-      </nav>
+        <nav class="navbar navbar-inverse navbar-fix">
+            <ul class="block-list-1 tab-title">
+            <?php 
+            if($all_categories) :
+                foreach($all_categories as $cat) :
+            ?>
+            <li>
+                <a onclick="loadSubMenu(<?= $cat->term_id; ?>)" class="menusub" id="menu" href="#"><?= $cat->name; ?></a>
+            </li>
+            <?php 
+                endforeach;            
+                wp_reset_query();
+            endif;
+            ?>
+            </ul>
+            <div class="clear"></div>
+        </nav>
     </div>
     <div>
         <div class="block-detail-2" style="display: block;">
-           <div id="get_page">
-              <ul class="ga" style="margin: 0;padding: 0;list-style: none;">
-              <?php
-              if (have_posts()) :
+            <div id="get_page">
+
+                <ul class="ga" style="margin: 0;padding: 0;list-style: none;">
+                <?php if( get_previous_posts_link() ) : ?>
+                <li class="col-md-4 col-sm-6 col-xs-12 xem giat" style="top: 100px;">
+                    <div>
+                        <?php previous_posts_link( '... Trở về' ); ?>
+                    </div>                         
+                </li>
+                <?php endif; ?>
+                <?php
+                if (have_posts()) :
                   while(have_posts()) :
                       the_post();
-              ?>
-              <li class="col-md-4 col-sm-6 col-xs-12 giat" style="position: relative;">
-                 <div class="row">
-                    <div class="detail">
-                      <a href="<?= get_the_permalink(); ?>">
-                          <?php the_post_thumbnail('post-thumbnail',[
-                                'class' => 'img-responsive',
-                                'style' => 'max-height: 440px'
-                          ]); ?>
-                       </a>
-                    </div> <!-- .detail -->
-                    <div class="tooltip-detail" style="position: absolute;">
-                      <a href="<?php the_permalink();  ?>">
-                    <h2 class="product_title"> <?php the_title(); ?> </h2>
-                </a>
-                <div class="thanhngang"></div>
-              </div>
-                 </div>
-              </li>
-              <?php
+                ?>
+                
+                <li class="col-md-4 col-sm-6 col-xs-12 giat" style="position: relative;">
+                    <div class="row">
+                        <div class="detail">
+                          <a href="<?= get_the_permalink(); ?>">
+                              <?php the_post_thumbnail('post-thumbnail',[
+                                    'class' => 'img-responsive',
+                                    'style' => 'max-height: 440px'
+                              ]); ?>
+                           </a>
+                        </div> <!-- .detail -->
+                        <div class="tooltip-detail" style="position: absolute;">
+                            <a href="<?php the_permalink();  ?>">
+                                <h2 class="product_title"> <?php the_title(); ?> </h2>
+                            </a>
+                            <div class="thanhngang"></div>
+                        </div>
+                    </div>
+                </li>
+                <?php
                   endwhile;
                     wp_reset_query();
-              endif;
-              ?>
-              <li class="col-md-4 col-sm-6 col-xs-12 xem giat">
-                  <div> <?php next_posts_link('Xem thêm...') ?> </div>                         
-              </li>
-              </ul>
-           </div>
+                endif;
+                ?>
+                <li class="col-md-4 col-sm-6 col-xs-12 xem giat" style="top: 100px;">
+                    <div> <?php next_posts_link('Xem thêm...') ?> </div>                         
+                </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
